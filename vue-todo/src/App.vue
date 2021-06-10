@@ -41,6 +41,6 @@ export default {
     font-weight: 500;
   }
   .shadow{
-    box-shadow: 5px 10px 10px rgba(0,0,0,003);
+    box-shadow: 5px 10px 10px rgba(0,0,0,0.03);
   }
 </style>
