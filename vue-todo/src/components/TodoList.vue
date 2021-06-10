@@ -1,7 +1,7 @@
 <template>
 	<div class="TodoList-cont">
 		<ul>
-			<li v-for="(todo, index) in todoItems" :key="index" class="shadow" >
+			<li v-for="(todo, index) in propsData" :key="index" class="shadow" >
 				<i :class="{checkBtnCompleted : todo.completed}" class="checkBtn fas fa-check" @click="toggleComplete(todo, index)"></i>
 				<span :class="{textCompleted : todo.completed}">{{ todo.item }}</span>
 				<span class="removeBtn" @click="removeTodo(todo.item, index)">
@@ -14,37 +14,16 @@
 
 <script>
 export default {
-	data() {
-		return {
-			todoItems : []
-		}
+	props:{
+		propsData : Array
 	},
 	methods: {
-		// localStorage에서 메시지 전달
-		requestMessage(){
-			if(localStorage.length > 0 ){
-				for(let i = 0; i < localStorage.length; i++){
-					// local webpack 정보 들어가지 않게
-					if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-						this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
-					}
-				}
-			}
+		removeTodo(todoItem, index){
+			this.$emit('removeItem', todoItem, index)
 		},
-		removeTodo(todo, index){
-			this.todoItems.splice(index, 1)
-			localStorage.removeItem(todo)
+		toggleComplete(todo, index){
+			this.$emit('toggleItem', todo, index)
 		},
-		toggleComplete(todo){
-			todo.completed = !todo.completed
-
-			// 로컬 스토리지 갱신 (update가 없어.. 삭제 후 재등록)
-			localStorage.removeItem(todo.item)
-			localStorage.setItem(todo.item, JSON.stringify(todo))
-		},
-	},
-	created() {
-		this.requestMessage()
 	},
 }
 </script>
