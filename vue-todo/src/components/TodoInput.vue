@@ -16,8 +16,14 @@ export default {
 	},
 	methods: {
 		addTodo(){
-			localStorage.setItem(this.newTodoItem, this.newTodoItem)
-			this.clearInput()
+			if (this.newTodoItem !== '') {
+				let obj = {
+					completed : false,
+					item : this.newTodoItem
+				}
+				localStorage.setItem(this.newTodoItem, JSON.stringify(obj))
+				this.clearInput()
+			}
 		},
 		clearInput(){
 			this.newTodoItem = ''
@@ -37,8 +43,14 @@ input:focus {
   background: #fff;
 }
 .inputBox input {
+	float: left;
+	width: calc(100% - 3rem);
+	height: 100%;
+	margin: 0;
+	padding: 0 10px;
   border-style: none;
   font-size: 0.9rem;
+	box-sizing: border-box;
 }
 .addContainer {
   float: right;
