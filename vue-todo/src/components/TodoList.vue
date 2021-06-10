@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="TodoList-cont">
 		<ul>
 			<li v-for="(todo, index) in todoItems" :key="index" class="shadow" >
 				<i :class="{checkBtnCompleted : todo.completed}" class="checkBtn fas fa-check" @click="toggleComplete(todo, index)"></i>
