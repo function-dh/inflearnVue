@@ -1,6 +1,6 @@
 <template>
 	<div class="inputBox shadow">
-		<input type="text" v-model="newTodoItem" @keyup.enter="addTodo">
+		<InputText v-model="newTodoItem" @addTodo="addTodo" />
 		<button @click="addTodo" class="addContainer">
 			<i class="addBtn fas fa-plus" aria-hidden="true"></i>
 		</button>
@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import InputText from './common/InputText'
+
 export default {
 	data() {
 		return {
@@ -25,6 +27,9 @@ export default {
 			this.newTodoItem = ''
 		}
 	},
+	components:{
+		InputText
+	}
 }
 </script>
 
