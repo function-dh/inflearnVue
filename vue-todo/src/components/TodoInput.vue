@@ -1,19 +1,34 @@
 <template>
 	<div class="inputBox shadow">
-		<InputText v-model="newTodoItem" @addTodo="addTodo" />
+		<!-- 텍스트 입력 창 -->
+		<InputText v-model="newTodoItem" @keyupEnter="addTodo" />
 		<button @click="addTodo" class="addContainer">
 			<i class="addBtn fas fa-plus" aria-hidden="true"></i>
 		</button>
+
+		<!-- Modal 창 -->
+		<Modal v-if="showModal">
+      <h3 slot="header">
+        경고
+        <i class="closeModalBtn fa fa-times"
+          aria-hidden="true"
+          @click="showModal = false">
+        </i>
+      </h3>
+      <p slot="body">할 일을 입력하세요.</p>
+    </Modal>
 	</div>
 </template>
 
 <script>
 import InputText from './common/InputText'
+import Modal from './common/Modal'
 
 export default {
 	data() {
 		return {
-			newTodoItem: ''
+			newTodoItem: '',
+			showModal : false
 		}
 	},
 	methods: {
@@ -21,6 +36,8 @@ export default {
 			if (this.newTodoItem !== '') {
 				this.$emit('addTodoItem', this.newTodoItem)
 				this.clearInput()
+			} else{
+				this.showModal = true
 			}
 		},
 		clearInput(){
@@ -28,7 +45,8 @@ export default {
 		}
 	},
 	components:{
-		InputText
+		InputText,
+		Modal
 	}
 }
 </script>
@@ -67,5 +85,8 @@ input:focus {
   line-height: 50px;
   vertical-align: middle;
   color: #fff;
+}
+.closeModalBtn{
+	color: #42b983;
 }
 </style>

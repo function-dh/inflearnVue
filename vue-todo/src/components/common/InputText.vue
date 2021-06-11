@@ -1,5 +1,5 @@
 <template>
-	<input type="text" :value="value" @input="setText" @keyup.enter="addText">
+	<input type="text" :value="value" @input="setText" @keyup.enter="keyupEnter">
 </template>
 
 <script>
@@ -11,8 +11,8 @@ export default {
 		setText(event){
 			this.$emit('input', event.target.value)
 		},
-		addText(){
-			this.$emit('addTodo')
+		keyupEnter(){
+			this.$emit('keyupEnter')
 		}
 	},
 }
