@@ -1,14 +1,14 @@
 <template>
 	<div class="TodoList-cont">
-		<ul>
-			<li v-for="(todo, index) in propsData" :key="index" class="shadow" >
+		<transition-group name="list" tag="ul">
+			<li v-for="(todo, index) in propsData" :key="todo.item" class="shadow" >
 				<i :class="{checkBtnCompleted : todo.completed}" class="checkBtn fas fa-check" @click="toggleComplete(todo, index)"></i>
 				<span :class="{textCompleted : todo.completed}">{{ todo.item }}</span>
 				<span class="removeBtn" @click="removeTodo(todo.item, index)">
 					<i class="fas fa-trash-alt"></i>
 				</span>
 			</li>
-		</ul>
+		</transition-group>
 	</div>
 </template>
 
@@ -60,5 +60,14 @@ export default {
 	.removeBtn {
 		margin-left: auto;
 		color: #de4343;
+	}
+
+	/* 리스트 아이템 transition css */
+	.list-enter-active, .list-leave-active {
+		transition: all 1s;
+	}
+	.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+		opacity: 0;
+		transform: translateY(30px);
 	}
 </style>
