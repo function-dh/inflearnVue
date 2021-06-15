@@ -21,17 +21,6 @@ export default {
 		}
 	},
   methods: {
-    // localStorage에서 메시지 전달
-		requestMessage(){
-			if(localStorage.length > 0 ){
-				for(let i = 0; i < localStorage.length; i++){
-					// local webpack 정보 들어가지 않게
-					if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-						this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
-					}
-				}
-			}
-		},
     // 새로운 할일 추가
     addOneItem(newTodoItem){
       const obj = {
@@ -59,9 +48,6 @@ export default {
 			localStorage.clear()
     }
   },
-  created() {
-		this.requestMessage()
-	},
   components: {
     TodoHeader,
     TodoInput,
