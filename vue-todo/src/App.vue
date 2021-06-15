@@ -34,7 +34,7 @@ export default {
 		},
     // 새로운 할일 추가
     addOneItem(newTodoItem){
-      let obj = {
+      const obj = {
         completed : false,
         item : newTodoItem
       }
@@ -50,8 +50,7 @@ export default {
     toggleOneItem(todo, index){
       this.todoItems[index].completed = !this.todoItems[index].completed
 
-      // 로컬 스토리지 갱신 (update가 없어.. 삭제 후 재등록)
-      localStorage.removeItem(todo.item)
+      // 로컬 스토리지 갱신 (기존 Key값 존재시 해당 key값 update)
       localStorage.setItem(todo.item, JSON.stringify(todo))
     },
     // 전체 삭제
