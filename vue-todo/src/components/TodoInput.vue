@@ -1,7 +1,7 @@
 <template>
 	<div class="inputBox shadow">
 		<!-- 텍스트 입력 창 -->
-		<InputText v-model="newTodoItem" @keyupEnter="addTodo" />
+		<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" />
 		<button @click="addTodo" class="addContainer">
 			<i class="addBtn fas fa-plus" aria-hidden="true"></i>
 		</button>
@@ -32,14 +32,21 @@ export default {
 		}
 	},
 	methods: {
+		// 할일 추가 관련
+		setData(txt){
+			this.newTodoItem = txt
+		},
 		addTodo(){
 			if (this.newTodoItem !== '') {
-				this.$emit('addTodoItem', this.newTodoItem)
+				console.log('전송');
+				this.$store.commit('addTodoItem', this.newTodoItem)
 				this.clearInput()
 			} else{
+				console.log('테스트');
 				this.showModal = true
 			}
 		},
+		// 입력창 초기화
 		clearInput(){
 			this.newTodoItem = ''
 		}
