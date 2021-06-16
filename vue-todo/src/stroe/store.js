@@ -36,17 +36,17 @@ export const store = new Vuex.Store({
     },
 		// 할일 삭제
 		removeOneItem(state, payload){
-			const {...item} = payload
-			state.todoItems.splice(item.index, 1)
-			localStorage.removeItem(item.todoItem)
+			const {todoItem, index} = payload
+			state.todoItems.splice(index, 1)
+			localStorage.removeItem(todoItem)
 		},
 		// 할일 체크
 		toggleOneItem(state, payload){
-			const {...item} = payload
-			state.todoItems[item.index].completed = !state.todoItems[item.index].completed
+			const {todo, index} = payload
+			state.todoItems[index].completed = !state.todoItems[index].completed
 
 			// 로컬 스토리지 갱신 (기존 Key값 존재시 해당 key값 update)
-			localStorage.setItem(item.todo.item, JSON.stringify(item.todo))
+			localStorage.setItem(todo.item, JSON.stringify(todo))
 		},
 		// 전체 삭제
 		clearAll(state){

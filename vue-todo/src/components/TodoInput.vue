@@ -38,11 +38,9 @@ export default {
 		},
 		addTodo(){
 			if (this.newTodoItem !== '') {
-				console.log('전송');
 				this.$store.commit('addTodoItem', this.newTodoItem)
 				this.clearInput()
 			} else{
-				console.log('테스트');
 				this.showModal = true
 			}
 		},
