@@ -4,12 +4,6 @@
 	</header>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
 h1{
 	margin: 2.5rem 0 1.5rem;
