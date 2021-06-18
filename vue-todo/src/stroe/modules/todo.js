@@ -20,7 +20,12 @@ const storage = {
 export default {
 	namespaced : true,
 	state : {
-		todoItems : storage.fetch()
+		todoItems : storage.fetch(),
+	},
+	getters : {
+		storedTodoItems(state){
+			return state.todoItems
+		}
 	},
 	mutations: {
     // 새로운 할일 추가
@@ -34,9 +39,9 @@ export default {
     },
 		// 할일 삭제
 		removeOneItem(state, payload){
-			const {todoItem, index} = payload
+			const {todo, index} = payload
 			state.todoItems.splice(index, 1)
-			localStorage.removeItem(todoItem)
+			localStorage.removeItem(todo.item)
 		},
 		// 할일 체크
 		toggleOneItem(state, payload){
