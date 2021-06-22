@@ -8,9 +8,6 @@
       <TodoList />
       <TodoClear />
     </div>
-    <div id="footer">
-      <p>footer 테스트</p>
-    </div>
   </div>
 </template>
 
