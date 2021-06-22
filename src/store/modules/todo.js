@@ -30,12 +30,26 @@ export default {
 	mutations: {
     // 새로운 할일 추가
     addTodoItem(state, newTodoItem){
-      const obj = {
-        completed : false,
-        item : newTodoItem
-      }
-      state.todoItems.push(obj)
-      localStorage.setItem(newTodoItem, JSON.stringify(obj))
+			let overlapChk = false
+
+			// 메모 텍스트 중복 체크
+			state.todoItems.map(todo => {
+				if(todo['item'] === newTodoItem){
+					overlapChk = true
+				}
+			})
+
+			if(overlapChk){
+				alert('중복된 메모 입니다!')
+				return
+			} else{
+				const obj = {
+					completed : false,
+					item : newTodoItem
+				}
+				state.todoItems.push(obj)
+				localStorage.setItem(newTodoItem, JSON.stringify(obj))
+			}
     },
 		// 할일 삭제
 		removeOneItem(state, payload){
