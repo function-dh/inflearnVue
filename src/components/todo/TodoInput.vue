@@ -48,11 +48,12 @@ export default {
 <style lang="scss" scoped>
 	.TodoInput {
 		height: 50px;
-		border-radius: 5px;
 		line-height: 50px;
 		.input-box{
+			overflow: hidden;
 			display: flex;
 			box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+			border-radius: 5px;
 			.todo-input {
 				width: 100%;
 				padding: 0 10px;
