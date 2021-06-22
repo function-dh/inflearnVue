@@ -1,34 +1,24 @@
 <template>
-	<div class="inputBox shadow">
-		<!-- 텍스트 입력 창 -->
-		<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" />
-		<button @click="addTodo" class="addContainer">
-			<i class="addBtn fas fa-plus" aria-hidden="true"></i>
-		</button>
-
-		<!-- Modal 창 -->
-		<Modal v-if="showModal">
-      <h3 slot="header">
-        경고
-        <i class="closeModalBtn fa fa-times"
-          aria-hidden="true"
-          @click="showModal = false">
-        </i>
-      </h3>
-      <p slot="body">할 일을 입력하세요.</p>
-    </Modal>
+	<div class="TodoInput">
+		<div class="inner">
+			<!-- 텍스트 입력 창 -->
+			<div class="input-box">
+				<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" class="todo-input" placeholder="할 일을 입력해주세요" />
+				<button @click="addTodo" class="add-container">
+					<i class="btn-add fas fa-plus" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 import InputText from '../common/InputText'
-import Modal from '../common/Modal'
 
 export default {
 	data() {
 		return {
 			newTodoItem: '',
-			showModal : false
 		}
 	},
 	methods: {
@@ -41,7 +31,7 @@ export default {
 				this.$store.commit('todo/addTodoItem', this.newTodoItem)
 				this.clearInput()
 			} else{
-				this.showModal = true
+				console.log('모달 오픈');
 			}
 		},
 		// 입력창 초기화
@@ -50,48 +40,38 @@ export default {
 		}
 	},
 	components:{
-		InputText,
-		Modal
+		InputText
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-input:focus {
-  outline: none;
-}
-.inputBox {
-  height: 50px;
-  border-radius: 5px;
-  line-height: 50px;
-  background: #fff;
-	input {
-		float: left;
-		width: calc(100% - 3rem);
-		height: 100%;
-		margin: 0;
-		padding: 0 10px;
-		border-style: none;
-		font-size: 0.9rem;
-		box-sizing: border-box;
+	.TodoInput {
+		height: 50px;
+		border-radius: 5px;
+		line-height: 50px;
+		.input-box{
+			display: flex;
+			box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+			.todo-input {
+				width: 100%;
+				padding: 0 10px;
+				border: 0;
+				&:focus{
+					outline: 0;
+				}
+			}
+			.add-container {
+				flex: 0 0 50px;
+				border-radius: 0 5px 5px 0;
+				background: linear-gradient(to right, $POINT, #8763FB);
+			}
+			.btn-add {
+				height: 50px;
+				line-height: 50px;
+				vertical-align: middle;
+				color: #fff;
+			}
+		}
 	}
-}
-.addContainer {
-  float: right;
-  display: block;
-  width: 3rem;
-	padding: 0;
-	border: 0;
-  border-radius: 0 5px 5px 0;
-  background: linear-gradient(to right, #6478FB, #8763FB);
-}
-.addBtn {
-	height: 50px;
-  line-height: 50px;
-  vertical-align: middle;
-  color: #fff;
-}
-.closeModalBtn{
-	color: #42b983;
-}
 </style>

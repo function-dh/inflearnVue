@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <div id="header">
+    <header id="header">
       <TodoHeader />
-    </div>
+    </header>
     <div id="container">
       <TodoInput />
       <TodoList />
       <TodoClear />
     </div>
+
+    <!-- modal -->
+    <Modal />
   </div>
 </template>
 
@@ -16,6 +19,7 @@ import TodoHeader from './components/todo/TodoHeader'
 import TodoInput from './components/todo/TodoInput'
 import TodoList from './components/todo/TodoList'
 import TodoClear from './components/todo/TodoClear'
+import Modal from './components/common/Modal'
 
 export default {
   name: 'App',
@@ -23,12 +27,21 @@ export default {
     TodoHeader,
     TodoInput,
     TodoList,
-    TodoClear
+    TodoClear,
+    Modal
   }
 }
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/common";
+  @import "@/assets/scss/common";
 
+  body{
+    background: $BACKGROUND;
+  }
+  .inner{
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 </style>

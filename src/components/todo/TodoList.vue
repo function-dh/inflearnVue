@@ -1,14 +1,16 @@
 <template>
-	<div class="TodoList-cont">
-		<transition-group name="list" tag="ul">
-			<li v-for="(todo, index) in this.todoItems" :key="todo.item" class="shadow" >
-				<i :class="{checkBtnCompleted : todo.completed}" class="checkBtn fas fa-check" @click="toggleComplete({todo, index})"></i>
-				<span :class="{textCompleted : todo.completed}">{{ todo.item }}</span>
-				<span class="removeBtn" @click="removeTodo({todo, index})">
-					<i class="fas fa-trash-alt"></i>
-				</span>
-			</li>
-		</transition-group>
+	<div class="TodoList">
+		<div class="inner">
+			<transition-group name="list" tag="ul" class="todo-list">
+				<li v-for="(todo, index) in this.todoItems" :key="todo.item" :class="{textCompleted : todo.completed}">
+					<i @click="toggleComplete({todo, index})" class="btn-check fas fa-check"></i>
+					<span class="txt">{{ todo.item }}</span>
+					<span @click="removeTodo({todo, index})" class="btn-remove">
+						<i class="fas fa-trash-alt"></i>
+					</span>
+				</li>
+			</transition-group>
+		</div>
 	</div>
 </template>
 
@@ -30,46 +32,59 @@ export default {
 }
 </script>
 
-<style scoped>
-	ul {
-		list-style-type: none;
-		padding-left: 0px;
-		margin-top: 0;
-		text-align: left;
-	}
-	li {
-		display: flex;
-		min-height: 50px;
-		height: 50px;
-		line-height: 50px;
-		margin: 0.5rem 0;
-		padding: 0 0.9rem;
-		background: white;
-		border-radius: 5px;
-	}
-	.checkBtn {
-		line-height: 45px;
-		color: #62acde;
-		margin-right: 5px;
-	}
-	.checkBtnCompleted {
-		color: #b3adad;
-	}
-	.textCompleted {
-		text-decoration: line-through;
-		color: #b3adad;
-	}
-	.removeBtn {
-		margin-left: auto;
-		color: #de4343;
+<style lang="scss" scoped>
+	.TodoList{
+		padding-bottom: 64px;
+		.todo-list{
+			overflow-x: hidden;
+			overflow-y: auto;
+			margin: 12px 0 0;
+			padding: 0 0 15px;
+			> li{
+				display: flex;
+				margin: 12px 0 0;
+				padding: 13px 12px;
+				border-radius: 5px;
+				box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+				background: #fff;
+				&:first-child{
+					margin: 0;
+				}
+				&.textCompleted{
+					.btn-check {
+						color: $DISABLED_DEFAULT;
+					}
+					.txt{
+						text-decoration: line-through;
+						color: $DISABLED_DEFAULT;
+					}
+				}
+				.btn-check {
+					display: block;
+					margin: 4px 12px 0 0;
+					line-height: 1;
+					color: $POINT;
+				}
+				.txt{
+					@include ellipsis();
+					width: 100%;
+				}
+				.btn-remove {
+					display: block;
+					margin-left: 12px;
+					line-height: 1;
+					color: $POINT_PURPLE;
+				}
+			}
+		}
 	}
 
 	/* 리스트 아이템 transition css */
 	.list-enter-active, .list-leave-active {
 		transition: all 1s;
 	}
-	.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+	.list-enter, .list-leave-to {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateX(30px);
 	}
 </style>

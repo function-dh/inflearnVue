@@ -1,13 +1,18 @@
 <template>
-	<header>
-		<h1>TODO it!</h1>
-	</header>
+	<div class="TodoHeader">
+		<div class="inner">
+			<h1 class="tit">메모장</h1>
+		</div>
+	</div>
 </template>
 
-<style scoped>
-h1{
-	margin: 2.5rem 0 1.5rem;
-	font-weight: 700;
-	color: #2f3b52;
-}
+<style lang="scss" scoped>
+	.TodoHeader{
+		padding: 40px 0;
+		.tit{
+			text-align: center;
+			font-weight: 700;
+			color: $POINT;
+		}
+	}
 </style>
