@@ -1,4 +1,6 @@
 module.exports = {
+	publicPath: '/inflearnVue',
+	outputDir: 'docs',
 	css : {
 		loaderOptions : {
 			sass : {
