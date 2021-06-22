@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 input:focus {
   outline: none;
 }
@@ -65,16 +65,16 @@ input:focus {
   border-radius: 5px;
   line-height: 50px;
   background: #fff;
-}
-.inputBox input {
-	float: left;
-	width: calc(100% - 3rem);
-	height: 100%;
-	margin: 0;
-	padding: 0 10px;
-  border-style: none;
-  font-size: 0.9rem;
-	box-sizing: border-box;
+	input {
+		float: left;
+		width: calc(100% - 3rem);
+		height: 100%;
+		margin: 0;
+		padding: 0 10px;
+		border-style: none;
+		font-size: 0.9rem;
+		box-sizing: border-box;
+	}
 }
 .addContainer {
   float: right;
