@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import InputText from './common/InputText'
-import Modal from './common/Modal'
+import InputText from '../common/InputText'
+import Modal from '../common/Modal'
 
 export default {
 	data() {

@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TodoHeader from './components/TodoHeader'
-import TodoInput from './components/TodoInput'
-import TodoList from './components/TodoList'
-import TodoClear from './components/TodoClear'
+import TodoHeader from './components/todo/TodoHeader'
+import TodoInput from './components/todo/TodoInput'
+import TodoList from './components/todo/TodoList'
+import TodoClear from './components/todo/TodoClear'
 
 export default {
   name: 'App',
