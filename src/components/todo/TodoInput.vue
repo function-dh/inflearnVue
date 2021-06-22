@@ -9,11 +9,22 @@
 				</button>
 			</div>
 		</div>
+
+		<!-- modal -->
+    <Modal>
+			<h3 slot="header">앗! 실수로 까먹으셨나요?</h3>
+			<p slot="body">
+				<i class="emoji" aria-label="당황하는 표정">😅</i>
+				메모를 입력 해주세요!
+			</p>
+		</Modal>
 	</div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import InputText from '../common/InputText'
+import Modal from '../common/Modal'
 
 export default {
 	data() {
@@ -22,6 +33,8 @@ export default {
 		}
 	},
 	methods: {
+		...mapMutations('modal', ['toggleModal']),
+
 		// 할일 추가 관련
 		setData(txt){
 			this.newTodoItem = txt
@@ -31,7 +44,7 @@ export default {
 				this.$store.commit('todo/addTodoItem', this.newTodoItem)
 				this.clearInput()
 			} else{
-				console.log('모달 오픈');
+				this.toggleModal()
 			}
 		},
 		// 입력창 초기화
@@ -40,7 +53,8 @@ export default {
 		}
 	},
 	components:{
-		InputText
+		InputText,
+		Modal
 	}
 }
 </script>
@@ -48,7 +62,6 @@ export default {
 <style lang="scss" scoped>
 	.TodoInput {
 		height: 50px;
-		line-height: 50px;
 		.input-box{
 			overflow: hidden;
 			display: flex;

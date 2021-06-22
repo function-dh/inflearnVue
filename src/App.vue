@@ -8,9 +8,6 @@
       <TodoList />
       <TodoClear />
     </div>
-
-    <!-- modal -->
-    <Modal />
   </div>
 </template>
 
@@ -19,7 +16,6 @@ import TodoHeader from './components/todo/TodoHeader'
 import TodoInput from './components/todo/TodoInput'
 import TodoList from './components/todo/TodoList'
 import TodoClear from './components/todo/TodoClear'
-import Modal from './components/common/Modal'
 
 export default {
   name: 'App',
@@ -27,8 +23,7 @@ export default {
     TodoHeader,
     TodoInput,
     TodoList,
-    TodoClear,
-    Modal
+    TodoClear
   }
 }
 </script>
