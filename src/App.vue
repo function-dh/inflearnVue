@@ -1,9 +1,16 @@
 <template>
   <div id="app">
-    <TodoHeader />
-    <TodoInput />
-    <TodoList />
-    <TodoFooter />
+    <div id="header">
+      <TodoHeader />
+    </div>
+    <div id="container">
+      <TodoInput />
+      <TodoList />
+      <TodoClear />
+    </div>
+    <div id="footer">
+      <p>footer 테스트</p>
+    </div>
   </div>
 </template>
 
@@ -11,7 +18,7 @@
 import TodoHeader from './components/TodoHeader'
 import TodoInput from './components/TodoInput'
 import TodoList from './components/TodoList'
-import TodoFooter from './components/TodoFooter'
+import TodoClear from './components/TodoClear'
 
 export default {
   name: 'App',
@@ -19,7 +26,7 @@ export default {
     TodoHeader,
     TodoInput,
     TodoList,
-    TodoFooter
+    TodoClear
   }
 }
 </script>
