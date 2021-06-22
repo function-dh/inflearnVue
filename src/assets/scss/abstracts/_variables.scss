@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+// version
+$VER: '0.1.0';
+
+// img url
+$imgUrl: '/static/#{$VER}/images';
+
+// font url
+$fontUrl: '/static/#{$VER}/fonts';
+$TEXT_FONT_STACK: (
+  'en': ('-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Noto Sans KR', 'Malgun Gothic', '맑은고딕', '돋움', 'Dotum', 'Helvetica', 'Apple SD Gothic Neo', Sans-serif),
+  'ko': ('Noto Sans KR', 'Malgun Gothic', '맑은고딕', '돋움', 'Dotum', 'Helvetica', 'Apple SD Gothic Neo' Sans-serif)
+);
+
+// color (미정)

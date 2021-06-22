@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#header{
+  position:relative;
+  z-index:21; // 21~30
+}
+
+#container{
+  position:relative;
+}
+
+#footer{
+  position:relative;
+  z-index:11; // 11~20
+}

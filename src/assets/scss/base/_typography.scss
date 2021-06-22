@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body, textarea, pre {
+  font-family: map-get($TEXT_FONT_STACK, 'ko');
+  font-size:16px;
+  font-weight:normal;
+  word-break: keep-all;
+  -webkit-text-size-adjust: none;
+  color: $TEXT_COLOR;
+}

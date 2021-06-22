@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+// clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+// skip
+@mixin skip() {
+	overflow:hidden;
+	position:absolute;
+	top:-999em;
+	left:-999em;
+	width:1px;
+	height:1px;
+}
+
+// ellipsis
+@mixin ellipsis($width:null) {
+	@if not $width{
+		display:block;
+	}@else{
+		display: inline-block;
+		max-width: $width;
+	}
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
