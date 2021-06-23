@@ -10,7 +10,7 @@
 - npm install 후 npm run serve 시 local 서버 실행
 - 해당 url에서 확인 가능
 
-[메모장](https://function-dh.github.io/inflearnVue/)
+[메모장](https://function-dh.github.io/vue-notepad/)
 
 ## 구현 내용
 
@@ -40,7 +40,7 @@
 
     ```jsx
     module.exports = {
-    	publicPath: '/inflearnVue',  // base url 설정
+    	publicPath: '/vue-notepad',  // base url 설정
     	outputDir: 'docs',
     }
     ```

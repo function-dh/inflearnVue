@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: '/inflearnVue',
+	publicPath: '/vue-notepad',
 	outputDir: 'docs',
 	css : {
 		loaderOptions : {
