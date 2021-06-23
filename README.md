@@ -19,17 +19,17 @@
 
     ```jsx
     assets
-    	ㄴ scss
-    		ㄴ abstracts
-    			ㄴ grid   // 미디어쿼리 등 프로젝트 grid 설정
-    			ㄴ mixins   // mixins 설정
-    			ㄴ variables    // 변수 설정 (색상, 경로 등)
-    		ㄴ base
-    			ㄴ fonts   // fonts 관련 경로 지정
-    			ㄴ reset   // normalize css적용
-    			ㄴ typography   // 페이지 font style 지정
-    		ㄴ layout    // 프로젝트 전체 layout 관련 스타일
-    	ㄴ common   // 통합 scss
+     ㄴ scss
+      ㄴ abstracts
+       ㄴ grid   // 미디어쿼리 등 프로젝트 grid 설정
+       ㄴ mixins   // mixins 설정
+       ㄴ variables    // 변수 설정 (색상, 경로 등)
+      ㄴ base
+       ㄴ fonts   // fonts 관련 경로 지정
+       ㄴ reset   // normalize css적용
+       ㄴ typography   // 페이지 font style 지정
+      ㄴ layout    // 프로젝트 전체 layout 관련 스타일
+     ㄴ common   // 통합 scss
     ```
 
 - class 네이밍, 스타일, 마크업 등 전체적으로 수정
@@ -53,14 +53,14 @@
 
         ```jsx
         css : {
-        		loaderOptions : {
-        			sass : {
-                additionalData: `
-                  @import "@/assets/scss/abstracts/abstracts.scss";
-                `
-        			}
-        		}
-        	}
+         loaderOptions : {
+          sass : {
+           additionalData: `
+            @import "@/assets/scss/abstracts/abstracts.scss";
+           `
+          }
+         }
+        }
         ```
 
 2. vuex, scss 속성 등 기본 세팅에서 선택하지 않고 개별적으로 추가 진행
