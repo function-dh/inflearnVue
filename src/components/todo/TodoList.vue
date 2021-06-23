@@ -3,11 +3,11 @@
 		<div class="inner">
 			<transition-group name="list" tag="ul" class="todo-list">
 				<li v-for="(todo, index) in this.todoItems" :key="todo.item" :class="{textCompleted : todo.completed}">
-					<i @click="toggleComplete({todo, index})" class="btn-check fas fa-check"></i>
+					<button type="button" @click="toggleComplete({todo, index})" class="btn-check fas fa-check" aria-label="완료된 메모 체크" />
 					<span class="txt">{{ todo.item }}</span>
-					<span @click="removeTodo({todo, index})" class="btn-remove">
+					<button @click="removeTodo({todo, index})" class="btn-remove" aria-label="메모 삭제">
 						<i class="fas fa-trash-alt"></i>
-					</span>
+					</button>
 				</li>
 			</transition-group>
 		</div>
@@ -61,7 +61,7 @@ export default {
 				}
 				.btn-check {
 					display: block;
-					margin: 4px 12px 0 0;
+					margin-right: 12px;
 					line-height: 1;
 					color: $POINT;
 				}
