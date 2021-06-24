@@ -3,10 +3,10 @@
 		<div class="inner">
 			<!-- 텍스트 입력 창 -->
 			<div class="input-box">
-				<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" class="todo-input" placeholder="할 일을 입력해주세요" />
+				<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" class="todo-input" placeholder="메모를 입력 해주세요" />
 				<button @click="addTodo" class="add-container">
 					<i class="btn-add fas fa-plus" aria-hidden="true"></i>
-				</button>
+				</button>녀
 			</div>
 		</div>
 
