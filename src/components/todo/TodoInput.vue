@@ -6,7 +6,7 @@
 				<InputText :value="newTodoItem" @input="setData" @keypressEnter="addTodo" class="todo-input" placeholder="메모를 입력 해주세요" />
 				<button @click="addTodo" class="add-container">
 					<i class="btn-add fas fa-plus" aria-hidden="true"></i>
-				</button>녀
+				</button>
 			</div>
 		</div>
 
